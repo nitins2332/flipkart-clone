@@ -22,6 +22,7 @@ const SearchIconWrapper = styled(Box)`
   padding: 5px;
   margin-left: auto;
   cursor: pointer;
+  display: flex;
 `;
 
 const Search = () => {
