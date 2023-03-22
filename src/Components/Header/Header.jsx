@@ -1,6 +1,17 @@
-import React from "react";
+import { React, useState } from "react";
 
-import { Box, AppBar, Toolbar, styled, Typography } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  styled,
+  ListItem,
+  List,
+} from "@mui/material";
+import { Menu } from "@mui/icons-material";
 
 import { logoURL, subURL } from "../../Constents/Data";
 
@@ -33,15 +44,51 @@ const PlusImage = styled("img")({
   marginLeft: 4,
 });
 
-const CustomButtonWrapper = styled(Box)`
-  margin: 0 5% 0 auto;
-`;
+const CustomButtonWrapper = styled(Box)(({ theme }) => ({
+  margin: "0 5% 0 auto",
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
+}));
+
+const MenuButton = styled(IconButton)(({ theme }) => ({
+  display: "none",
+  [theme.breakpoints.down("md")]: {
+    display: "block",
+  },
+}));
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const list = () => (
+    <Box style={{ width: 200 }} onClick={handleClose}>
+      <List>
+        <ListItem Button>
+          <CustomButton />
+        </ListItem>
+      </List>
+    </Box>
+  );
+
   return (
     <div>
       <StyledHeader>
         <Toolbar style={{ minHeight: 55 }}>
+          <MenuButton color="inherit" onClick={handleOpen}>
+            <Menu />
+          </MenuButton>
+          <Drawer open={open} onClose={handleClose}>
+            {list()}
+          </Drawer>
           {/* Main Logo */}
           <Components to={"/"}>
             <img src={logoURL} alt="logo" style={{ width: 75 }} />
