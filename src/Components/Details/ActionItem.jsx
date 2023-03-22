@@ -2,10 +2,13 @@ import React from "react";
 import { Box, Button, styled } from "@mui/material";
 import { ShoppingCart, FlashOn } from "@mui/icons-material";
 
-const LeftContainer = styled(Box)`
-  min-width: 40%;
-  padding: 40px 0 0 80px;
-`;
+const LeftContainer = styled(Box)(({ theme }) => ({
+  minWidth: "40%",
+  padding: "40px 0 0 80px",
+  [theme.breakpoints.down("lg")]: {
+    padding: "20px 40px",
+  },
+}));
 
 const Image = styled("img")({
   padding: "15px",
