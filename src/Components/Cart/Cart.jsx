@@ -2,6 +2,7 @@ import { React } from "react";
 import { Box, Grid, Typography, styled, Button } from "@mui/material";
 
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import CartItem from "./CartItem";
 import TotalView from "./TotalView";
@@ -36,7 +37,12 @@ const LeftComponent = styled(Grid)`
 `;
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { cartItems } = useSelector((state) => state.cart);
+
+  const placeOrder = () => {
+    navigate("/payment");
+  };
 
   return (
     <>
@@ -50,7 +56,11 @@ const Cart = () => {
               <CartItem item={item} />
             ))}
             <ButtonWrapper>
-              <StyledButton variant="contained" color="success">
+              <StyledButton
+                variant="contained"
+                color="success"
+                onClick={() => placeOrder()}
+              >
                 Place Order
               </StyledButton>
             </ButtonWrapper>
