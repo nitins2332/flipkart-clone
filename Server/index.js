@@ -17,6 +17,10 @@ app.use("/", router);
 const PORT = 8000;
 Connection();
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+if (PORT) {
+  app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+}
+
+module.exports = app;
 
 DefaultData();

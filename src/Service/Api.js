@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const URL = "http://localhost:8000";
+const React_app_api_url = process.env.REACT_APP_API_URL;
+
+const URL = React_app_api_url;
 
 export const authenticateSignup = async (data) => {
   try {

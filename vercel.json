@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/Server/index.js",
+      "destination": "/Server"
+    }
+  ]
+}
