@@ -6,21 +6,28 @@ import Connection from "./database/db.js";
 import DefaultData from "./default.js";
 import router from "./routes/route.js";
 
-const app = express();
+import dotenv from "dotenv";
+dotenv.config();
 
-app.use(cors());
+const port = process.env.PORT;
+
+const app = express();
+app.use(
+  cors({
+    methods: ["POST", "GET", "DELETE", "UPDATE"],
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", router);
 
-const PORT = process.env.PORT;
 Connection();
 
-if (PORT) {
-  app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-}
+app.listen(port, () => console.log(`Listening on ${port}`));
 
-module.exports = app;
+// module.exports = app;
 
-DefaultData();
+// DefaultData();
