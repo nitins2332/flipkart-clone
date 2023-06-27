@@ -66,7 +66,7 @@ const Search = () => {
             .filter((product) =>
               product.title.longTitle.toLowerCase().includes(text.toLowerCase())
             )
-            .map((product) => (
+            ?.map((product) => (
               <ListItem>
                 <Link
                   to={`/product/${product.id}`}

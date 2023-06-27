@@ -39,7 +39,7 @@ const DetailView = () => {
 
   return (
     <Component>
-      {product && Object.keys(product).length && (
+      {product && Object.keys(product)?.length && (
         <Container container>
           <Grid item lg={4} md={5} sm={8} xs={12}>
             <ActionItem product={product} />

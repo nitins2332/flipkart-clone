@@ -3,7 +3,7 @@ import axios from "axios";
 // if you want to import all variable than use *
 import * as actionTypes from "../Constants/ProductConstant";
 
-const URL = "http://localhost:8000";
+const URL = "https://ecommerce-project-backend-eight.vercel.app";
 
 export const getProducts = () => async (dispatch) => {
   try {

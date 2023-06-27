@@ -28,7 +28,7 @@ const NavBar = () => {
   return (
     <Box style={{ background: "#fff" }}>
       <Component>
-        {navData.map((data) => (
+        {navData?.map((data) => (
           <Container>
             <img src={data.url} alt="" style={{ width: 65 }} />
             <Text>{data.text}</Text>

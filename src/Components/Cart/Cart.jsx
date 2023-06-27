@@ -46,13 +46,13 @@ const Cart = () => {
 
   return (
     <>
-      {cartItems.length ? (
+      {cartItems?.length ? (
         <Container container>
           <LeftComponent item lg={9} md={9} sm={12} xs={12}>
             <Header>
-              <Typography>My Cart ({cartItems.length})</Typography>
+              <Typography>My Cart ({cartItems?.length})</Typography>
             </Header>
-            {cartItems.map((item) => (
+            {cartItems?.map((item) => (
               <CartItem item={item} />
             ))}
             <ButtonWrapper>

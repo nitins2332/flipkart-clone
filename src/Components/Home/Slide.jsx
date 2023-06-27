@@ -102,7 +102,7 @@ const Slide = ({ products, title, timer }) => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {products.map((product) => (
+        {products?.map((product) => (
           <Link to={`product/${product.id}`} style={{ textDecoration: "none" }}>
             <Box textAlign="center" style={{ padding: "25px 15px" }}>
               <Image src={product.url} alt={product.title.shortTitle} />
